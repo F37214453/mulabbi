@@ -1,0 +1,5 @@
+/*
+  This folder will include and helpers we might need
+
+  Ex. Date formatting
+*/
