@@ -69,6 +69,19 @@ an application to help pilgrims detects their nusk step by step
 | Aladhan         | API                  | Getting prayers time [API Link](https://api.aladhan.com/v1/timingsByAddress/${date}?address=Makkah%2C+Saudi+Arabia&method=4&shafaq=general&latitudeAdjustmentMethod=1&calendarMethod=UAQ) |
 | To Be Continued | Soon...              | Soon...                                                                                                                                                                                   |
 
+## External Packages
+
+| Packege                     | Link                                                           | Purpose                                                       |
+| --------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------- |
+| introduction_screen         | [source](https://pub.dev/packages/introduction_screen)         | onboarding                                                    |
+| flutter_native_splash       | [source](https://pub.dev/packages/flutter_native_splash)       | splash screen                                                 |
+| pinput                      | [source](https://pub.dev/packages/pinput)                      | auth otp input                                                |
+| supabase_flutter            | [source](https://pub.dev/packages/supabase_flutter)            | <ul><li>Database</li><li>Api</li><li>Authentecation</li></ul> |
+| getX                        | [source](https://pub.dev/packages/get)                         | State management                                              |
+| Dio                         | [source](https://pub.dev/packages/dio)                         | Networking                                                    |
+| flutter_local_notifications | [source](https://pub.dev/packages/flutter_local_notifications) | Notification                                                  |
+| to be continued             |                                                                | Soon...                                                       |
+
 [^4]: Guidelines
 
 ## Running the app within your flutter
