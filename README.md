@@ -82,6 +82,14 @@ an application to help pilgrims detects their nusk step by step
 | flutter_local_notifications | [source](https://pub.dev/packages/flutter_local_notifications) | Notification                                                  |
 | to be continued             |                                                                | Soon...                                                       |
 
+## Data Sources
+
+| Data Source | Link                                                                                                                                                                 | Purpose              |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| Aladhan     | [API Link](https://api.aladhan.com/v1/timingsByAddress/${date}?address=Makkah%2C+Saudi+Arabia&method=4&shafaq=general&latitudeAdjustmentMethod=1&calendarMethod=UAQ) | Getting prayers time |
+| Zad Content | [API Link](https://mulabbi-api.vercel.app/api/contents)                                                                                                              | Zad content          |
+| Adeiyah     | [API Link](https://68297d8b6075e87073a69d31.mockapi.io/duas) `There's local verison`                                                                                 | Adeiyah              |
+
 [^4]: Guidelines
 
 ## Running the app within your flutter
