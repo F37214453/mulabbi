@@ -1,5 +1,0 @@
-/*
-  This folder will include and reusable widgets
-
-  Ex. Cards
-*/
