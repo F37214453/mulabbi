@@ -115,7 +115,8 @@ class TrackController extends GetxController {
     type = nusuk.first["nusuk_id"]["nusuk_type"];
     currentStep.value = 1;
 
-    Get.to(() => MainScaffold(userType: UserType.guest, index: 2));
+    Get.reloadAll();
+    Get.to(() => MainScaffold(userType: UserType.user, index: 2));
   }
 
   void endTracking() async {
@@ -129,6 +130,6 @@ class TrackController extends GetxController {
     type = "";
     isTrackActive = false;
     Get.reload();
-    Get.to(() => MainScaffold(userType: UserType.guest, index: 2));
+    Get.to(() => MainScaffold(userType: UserType.user, index: 2));
   }
 }

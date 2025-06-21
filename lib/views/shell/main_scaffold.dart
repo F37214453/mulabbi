@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mulabbi/main.dart';
 import 'package:mulabbi/views/home_views/guest_home.dart';
 import 'package:mulabbi/views/settings_views/guest_settings%20page.dart';
 import 'package:mulabbi/views/shell/bottom_nav_bar.dart';
@@ -38,10 +39,7 @@ class _MainScaffoldState extends State<MainScaffold> {
   Widget _getPage(int index) {
     switch (index) {
       case 0: // الإعدادات
-        return switch (widget.userType) {
-          UserType.guest => const GuestSettingsPage(),
-          _ => const SettingsPage(), // covers user & onJourney
-        };
+        return GuestSettingsPage();
       case 1: // زاد
         return ZadPageView();
       case 2: // المسار

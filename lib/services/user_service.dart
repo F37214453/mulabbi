@@ -1,3 +1,4 @@
+import 'package:mulabbi/main.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:mulabbi/models/user_type.dart';
 import 'package:mulabbi/models/app_user.dart';
@@ -5,6 +6,19 @@ import 'package:mulabbi/models/journey.dart';
 
 class UserService {
   static final _supabase = Supabase.instance.client;
+
+  static Future<User?> getCurrentUser() async {
+    final token = await storage.getString("token");
+    if (token == null) return null;
+
+    try {
+      final response = await supabase.auth.getUser(token);
+
+      return response.user;
+    } catch (e) {
+      return null;
+    }
+  }
 
   // جلب نوع المستخدم الحالي
   static Future<UserType> getCurrentUserType() async {
