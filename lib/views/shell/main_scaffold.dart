@@ -4,11 +4,11 @@ import 'package:mulabbi/views/settings_views/guest_settings%20page.dart';
 import 'package:mulabbi/views/shell/bottom_nav_bar.dart';
 import 'package:mulabbi/views/home_views/user_home.dart';
 import 'package:mulabbi/views/track_views/guest_track.dart';
-import 'package:mulabbi/views/track_views/user_active_track.dart';
-import 'package:mulabbi/views/track_views/user_inactive_track.dart';
 import 'package:mulabbi/views/home_views/journey_home.dart';
 import 'package:mulabbi/views/settings_views/settings_page.dart';
-import 'package:mulabbi/views/zad_views/zad_page.dart';
+import 'package:mulabbi/views/zad_views/zad_page_view.dart';
+import 'package:mulabbi/widgets/track_widgets/track_fallaback_not_authorized.dart';
+import 'package:mulabbi/widgets/track_widgets/track_fallback_non_active.dart';
 
 enum UserType { guest, user, onJourney }
 
@@ -38,12 +38,12 @@ class _MainScaffoldState extends State<MainScaffold> {
           _ => const SettingsPage(), // covers user & onJourney
         };
       case 1: // زاد
-        return const ZadPage();
+        return ZadPageView();
       case 2: // المسار
         return switch (widget.userType) {
           UserType.guest => const GuestTrack(),
-          UserType.user => const UserInactiveTrack(),
-          UserType.onJourney => const UserActiveTrack(),
+          UserType.user => const TrackFallabackNotAuthorized(),
+          UserType.onJourney => const TrackFallbackNonActive(),
         };
 
       case 3: // الرئيسية
