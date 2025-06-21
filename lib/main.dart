@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:mulabbi/views/Introductory_screens/splash_screen.dart';
+import 'package:mulabbi/views/Introductory_screens/is_new_user_screen.dart';
+import 'package:mulabbi/views/Introductory_screens/onboarding/onboarding_page1.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Cairo"),
-      home: SplashScreen(),
+      // home: MainScaffold(userType: UserType.guest),
+      home: IsNewUserScreen(),
     );
   }
 }

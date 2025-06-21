@@ -118,6 +118,8 @@ class TrackController extends GetxController {
 
     Get.reloadAll();
     Get.to(() => MainScaffold(userType: UserType.user, index: 2));
+    Get.reloadAll();
+    Get.to(() => MainScaffold(userType: UserType.user, index: 2));
   }
 
   void endTracking(BuildContext context) async {
@@ -130,12 +132,7 @@ class TrackController extends GetxController {
     progressId = -1;
     type = "";
     isTrackActive = false;
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MainScaffold(userType: UserType.user),
-      ),
-    );
-    // Get.to(() => MainScaffold(userType: UserType.user, index: 3));
+    Get.reload();
+    Get.to(() => MainScaffold(userType: UserType.user, index: 2));
   }
 }
