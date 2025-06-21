@@ -14,6 +14,8 @@ void main() async {
     url: "https://mycjnevnidgeklceghsb.supabase.co",
   );
 
+  await storage.setBool("isFirstTime", false);
+
   runApp(MyApp());
 }
 
