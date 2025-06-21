@@ -13,7 +13,7 @@ class UmrahView extends StatelessWidget {
       type: "umrah",
       height: 400,
       nuskTitle: "رحلتك في العمرة",
-      tracks: [Positioned(child: Image.asset("images/track-umrah.png"))],
+      tracks: [Positioned(child: Image.asset("assets/images/track-umrah.png"))],
       trackCards: GetX<TrackController>(
         builder: (controller) {
           return Stack(
@@ -37,7 +37,7 @@ class UmrahView extends StatelessWidget {
                   isLeft: false,
                   trackNumber: 2,
                   isCompleted: controller.currentStep > 1,
-                  imgPath: "images/step-2-kabah.png",
+                  imgPath: "assets/images/step-2-kabah.png",
                 ),
               ),
               TrackCard(
@@ -47,7 +47,7 @@ class UmrahView extends StatelessWidget {
                   title: "السعي بين الصفا و المروة",
                   trackNumber: 3,
                   isCompleted: controller.currentStep > 2,
-                  imgPath: "images/step-3.png",
+                  imgPath: "assets/images/step-3.png",
                 ),
               ),
               TrackCard(
@@ -58,7 +58,7 @@ class UmrahView extends StatelessWidget {
                   title: "الحلق و التقصير",
                   trackNumber: 4,
                   isCompleted: controller.currentStep > 3,
-                  imgPath: "images/step-8.png",
+                  imgPath: "assets/images/step-8.png",
                 ),
               ),
             ],

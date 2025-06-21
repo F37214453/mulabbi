@@ -13,7 +13,7 @@ class ChooseNuskView extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Image.asset("images/steps-background.png"),
+          Image.asset("assets/images/steps-background.png"),
           Padding(
             padding: const EdgeInsets.only(top: 100),
             child: Column(

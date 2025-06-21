@@ -17,20 +17,20 @@ class IfradView extends StatelessWidget {
         Positioned(
           child: Padding(
             padding: const EdgeInsets.only(top: 15.0),
-            child: Image.asset("images/track-start-right.png"),
+            child: Image.asset("assets/images/track-start-right.png"),
           ),
         ),
         Positioned(
           top: 299,
           left: 97,
-          child: Image.asset("images/track-start-left.png"),
+          child: Image.asset("assets/images/track-start-left.png"),
         ),
         Positioned(
           top: 607,
           left: 331,
           child: Container(
             transform: Matrix4.rotationY(3.14),
-            child: Image.asset("images/track-start-left.png"),
+            child: Image.asset("assets/images/track-start-left.png"),
           ),
         ),
       ],
@@ -57,7 +57,7 @@ class IfradView extends StatelessWidget {
                   isLeft: false,
                   trackNumber: 2,
                   isCompleted: controller.currentStep > 1,
-                  imgPath: "images/step-2-kabah.png",
+                  imgPath: "assets/images/step-2-kabah.png",
                 ),
               ),
               TrackCard(
@@ -67,7 +67,7 @@ class IfradView extends StatelessWidget {
                   title: "السعي بين الصفا و المروة",
                   trackNumber: 3,
                   isCompleted: controller.currentStep > 2,
-                  imgPath: "images/step-3.png",
+                  imgPath: "assets/images/step-3.png",
                 ),
               ),
               TrackCard(
@@ -78,7 +78,7 @@ class IfradView extends StatelessWidget {
                   title: "المبيت في منى",
                   trackNumber: 4,
                   isCompleted: controller.currentStep > 3,
-                  imgPath: "images/step-4.png",
+                  imgPath: "assets/images/step-4.png",
                 ),
               ),
               TrackCard(
@@ -88,7 +88,7 @@ class IfradView extends StatelessWidget {
                   title: "الوقوف بعرفة",
                   trackNumber: 5,
                   isCompleted: controller.currentStep > 4,
-                  imgPath: "images/step-5.png",
+                  imgPath: "assets/images/step-5.png",
                 ),
               ),
               TrackCard(
@@ -99,7 +99,7 @@ class IfradView extends StatelessWidget {
                   title: "المبيت في مزدلفة",
                   trackNumber: 6,
                   isCompleted: controller.currentStep > 5,
-                  imgPath: "images/step-6.png",
+                  imgPath: "assets/images/step-6.png",
                 ),
               ),
               TrackCard(
@@ -109,7 +109,7 @@ class IfradView extends StatelessWidget {
                   title: "رمي الجمرة الأولى",
                   trackNumber: 7,
                   isCompleted: controller.currentStep > 6,
-                  imgPath: "images/step-7.png",
+                  imgPath: "assets/images/step-7.png",
                 ),
               ),
               TrackCard(
@@ -120,7 +120,7 @@ class IfradView extends StatelessWidget {
                   title: "الحلق أو التقصير",
                   trackNumber: 8,
                   isCompleted: controller.currentStep > 7,
-                  imgPath: "images/step-8.png",
+                  imgPath: "assets/images/step-8.png",
                 ),
               ),
               TrackCard(
@@ -130,7 +130,7 @@ class IfradView extends StatelessWidget {
                   title: "طواف الإفاضة",
                   trackNumber: 9,
                   isCompleted: controller.currentStep > 8,
-                  imgPath: "images/step-2-kabah.png",
+                  imgPath: "assets/images/step-2-kabah.png",
                 ),
               ),
               TrackCard(
@@ -141,7 +141,7 @@ class IfradView extends StatelessWidget {
                   title: "رمي الجمرات",
                   trackNumber: 10,
                   isCompleted: controller.currentStep > 9,
-                  imgPath: "images/step-10.png",
+                  imgPath: "assets/images/step-10.png",
                 ),
               ),
               TrackCard(
@@ -151,7 +151,7 @@ class IfradView extends StatelessWidget {
                   title: "طواف الوداع",
                   trackNumber: 11,
                   isCompleted: controller.currentStep > 10,
-                  imgPath: "images/step-2-kabah.png",
+                  imgPath: "assets/images/step-2-kabah.png",
                 ),
               ),
             ],

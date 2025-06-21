@@ -3,12 +3,10 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:mulabbi/main.dart';
 import 'package:mulabbi/models/nusk_details.dart';
-import 'package:mulabbi/views/track_views/track_entry_view.dart';
-import 'package:mulabbi/widgets/track_widgets/track_fallback_non_active.dart'
-    show TrackFallbackNonActive;
+import 'package:mulabbi/views/shell/main_scaffold.dart';
 
 class TrackController extends GetxController {
-  String? currentUserId = supabase.auth.currentUser?.id;
+  String? currentUserId;
   RxInt currentStep = 1.obs;
   int progressId = -1;
   bool isTrackActive = false;
@@ -17,6 +15,9 @@ class TrackController extends GetxController {
   List<nusks_details> nusks = [];
 
   Future<void> getUserCurrentStep() async {
+    final token = await storage.getString("token");
+    final userRes = await supabase.auth.getUser(token);
+    currentUserId = userRes.user?.id;
     try {
       final doesUserExist = await supabase
           .from("users")
@@ -72,7 +73,7 @@ class TrackController extends GetxController {
   Future<void> setNuskDetails(String type) async {
     try {
       final String jsonString = await rootBundle.loadString(
-        'lib//data/nusk_details.json',
+        'lib/data/nusk_details.json',
       );
       final List<dynamic> jsonData = json.decode(jsonString);
       nusks = jsonData.map((json) => nusks_details.fromJson(json)).toList();
@@ -114,7 +115,7 @@ class TrackController extends GetxController {
     type = nusuk.first["nusuk_id"]["nusuk_type"];
     currentStep.value = 1;
 
-    Get.to(() => TrackEntryView());
+    Get.to(() => MainScaffold(userType: UserType.guest, index: 2));
   }
 
   void endTracking() async {
@@ -128,6 +129,6 @@ class TrackController extends GetxController {
     type = "";
     isTrackActive = false;
     Get.reload();
-    Get.to(() => TrackFallbackNonActive());
+    Get.to(() => MainScaffold(userType: UserType.guest, index: 2));
   }
 }

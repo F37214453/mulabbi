@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mulabbi/main.dart';
 import 'package:mulabbi/views/auth/otp_cheak_page.dart';
 import 'package:mulabbi/widgets/auth_widgets/auth_custom.dart';
@@ -105,8 +106,7 @@ class _RegisterScreenState extends State<SingupPage> {
                       'name': nameController.text,
                       'email': emailController.text,
                     });
-                    Navigator.pushAndRemoveUntil(
-                      context,
+                    Get.offUntil(
                       MaterialPageRoute(
                         builder:
                             (context) => OtpScreen(email: emailController.text),

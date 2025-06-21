@@ -29,11 +29,11 @@ class Track extends StatelessWidget {
           child: Stack(
             alignment: Alignment.topCenter,
             children: [
-              Image.asset("images/steps-background.png"),
+              Image.asset("assets/images/steps-background.png"),
               Positioned(
                 bottom: 200,
                 child: Image.asset(
-                  "images/steps-fill.png",
+                  "assets/images/steps-fill.png",
                   width: 400,
                   height: height == null ? null : height! - 400,
                   fit: BoxFit.contain,
@@ -42,7 +42,7 @@ class Track extends StatelessWidget {
               Positioned(
                 bottom: -300,
                 child: Image.asset(
-                  "images/steps-fill.png",
+                  "assets/images/steps-fill.png",
                   width: 400,
                   height: height == null ? null : height! - 400,
                   fit: BoxFit.contain,

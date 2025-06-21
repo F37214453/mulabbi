@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mulabbi/core/colors.dart';
-import 'package:mulabbi/views/home_views/guest_home.dart';
+import 'package:mulabbi/views/auth/login_page.dart';
 import 'package:mulabbi/views/shell/main_scaffold.dart';
 import 'package:mulabbi/widgets/introductory_screens_widgets/language_icon_button.dart';
 import 'package:mulabbi/widgets/introductory_screens_widgets/language_dialog.dart';
@@ -118,7 +119,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
-                        // TODO: Navigate to LoginScreen
+                        Get.to(() => LoginScreen());
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,

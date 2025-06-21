@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mulabbi/core/colors.dart';
 import 'package:mulabbi/main.dart';
 import 'package:mulabbi/views/auth/singup_page.dart';
+import 'package:mulabbi/views/shell/main_scaffold.dart';
 // import 'package:mulabbi/views/shell/main_scaffold.dart';
 import 'package:mulabbi/widgets/auth_widgets/auth_custom.dart';
 import 'package:mulabbi/widgets/tools_widgets/button_custom.dart';
@@ -177,6 +179,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         'token',
                         response.session!.accessToken,
                       );
+
+                      Get.to(() => MainScaffold(userType: UserType.guest));
                     },
                   ),
                 ),

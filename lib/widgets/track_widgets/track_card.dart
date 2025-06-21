@@ -82,7 +82,7 @@ class TrackCardUI extends StatelessWidget {
                                       BlendMode.color,
                                     ),
                             child: Image.asset(
-                              imgPath ?? "images/step-1.png",
+                              imgPath ?? "assets/images/step-1.png",
                               width: 50,
                               height: 50,
                               fit: BoxFit.contain,
@@ -165,7 +165,7 @@ class TrackCardUI extends StatelessWidget {
                                 BlendMode.color,
                               ),
                       child: Image.asset(
-                        imgPath ?? "images/step-1.png",
+                        imgPath ?? "assets/images/step-1.png",
                         width: 50,
                         height: 50,
                         fit: BoxFit.contain,

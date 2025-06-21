@@ -15,7 +15,7 @@ class AuthContainer extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/welcome.png'),
+            image: AssetImage('assets/images/welcome_background.png'),
             fit: BoxFit.cover,
           ),
         ),

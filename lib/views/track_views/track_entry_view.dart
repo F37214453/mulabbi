@@ -23,7 +23,7 @@ class _TrackEntryViewState extends State<TrackEntryView> {
     Widget render = Stack(
       alignment: Alignment.center,
       children: [
-        Image.asset("images/steps-background.png"),
+        Image.asset("assets/images/steps-background.png"),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 40,
@@ -51,7 +51,11 @@ class _TrackEntryViewState extends State<TrackEntryView> {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Image.asset("images/steps-background.png"),
+                  Image.asset(
+                    "assets/images/steps-background.png",
+                    width: 600,
+                    fit: BoxFit.cover,
+                  ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     spacing: 40,

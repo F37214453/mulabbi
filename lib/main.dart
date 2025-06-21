@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: "Cairo"),
       // home: MainScaffold(userType: UserType.guest),
       home: OnboardingPage1(),
     );
