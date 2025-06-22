@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Cairo"),
-      // home: MainScaffold(userType: UserType.guest),
       home: IsNewUserScreen(),
     );
   }

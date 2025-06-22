@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mulabbi/main.dart';
 import 'package:mulabbi/views/home_views/guest_home.dart';
 import 'package:mulabbi/views/settings_views/guest_settings%20page.dart';
 import 'package:mulabbi/views/settings_views/settings_page.dart';
