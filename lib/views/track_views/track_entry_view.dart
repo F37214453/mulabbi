@@ -92,7 +92,7 @@ class _TrackEntryViewState extends State<TrackEntryView> {
               case "qeran":
                 render = QeranView();
                 break;
-              case "tmatoa":
+              case "tamatoa":
                 render = TmatoaView();
                 break;
               case "umrah":

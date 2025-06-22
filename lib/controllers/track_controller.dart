@@ -4,11 +4,13 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:mulabbi/main.dart';
 import 'package:mulabbi/models/nusk_details.dart';
+import 'package:mulabbi/services/user_service.dart';
 import 'package:mulabbi/views/shell/main_scaffold.dart';
 
 class TrackController extends GetxController {
   String? currentUserId;
   RxInt currentStep = 1.obs;
+  Steps? stepInfo;
   int progressId = -1;
   bool isTrackActive = false;
   String type = "";
@@ -16,9 +18,9 @@ class TrackController extends GetxController {
   List<nusks_details> nusks = [];
 
   Future<void> getUserCurrentStep() async {
-    final token = await storage.getString("token");
-    final userRes = await supabase.auth.getUser(token);
-    currentUserId = userRes.user?.id;
+    final user = await UserService.getCurrentUser();
+    currentUserId = user?.id;
+    print(currentUserId);
     try {
       final doesUserExist = await supabase
           .from("users")
@@ -57,7 +59,7 @@ class TrackController extends GetxController {
       currentStep.value = data["step_number"];
       type = data["user_nusuk"]["nusuk_id"]["nusuk_type"];
       progressId = data["user_nusuk_pr_id"];
-
+      await getStepInfo();
       // REALTIME
       supabase
           .from('user_nusuk_progress')
@@ -82,6 +84,14 @@ class TrackController extends GetxController {
       update();
       // ignore: empty_catches
     } catch (e) {}
+  }
+
+  Future<void> getStepInfo() async {
+    await setNuskDetails(type);
+    if (nusks.isEmpty) {
+      return;
+    }
+    stepInfo = nusks.first.steps?.elementAt(getCurrentStep() - 1);
   }
 
   int getCurrentStep() {

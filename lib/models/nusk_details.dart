@@ -26,12 +26,24 @@ class nusks_details {
 
 class Steps {
   String? timing;
+  String? shortTitle;
+  String? shortDescription;
+  String? shortImage;
   List<Details>? details;
 
-  Steps({this.timing, this.details});
+  Steps({
+    this.timing,
+    this.shortTitle,
+    this.shortDescription,
+    this.shortImage,
+    this.details,
+  });
 
   Steps.fromJson(Map<String, dynamic> json) {
     timing = json['timing'];
+    shortTitle = json['shortTitle'];
+    shortDescription = json['shortDescription'];
+    shortImage = json['shortImage'];
     if (json['details'] != null) {
       details = <Details>[];
       json['details'].forEach((v) {
@@ -43,6 +55,9 @@ class Steps {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['timing'] = this.timing;
+    data["shortTitle"] = this.shortTitle;
+    data["shortDescription"] = this.shortDescription;
+    data["shortImage"] = this.shortImage;
     if (this.details != null) {
       data['details'] = this.details!.map((v) => v.toJson()).toList();
     }
