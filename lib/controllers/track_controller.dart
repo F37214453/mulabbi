@@ -132,7 +132,6 @@ class TrackController extends GetxController {
     progressId = -1;
     type = "";
     isTrackActive = false;
-    Get.reload();
-    Get.to(() => MainScaffold(userType: UserType.user, index: 2));
+    Get.to(() => MainScaffold(userType: UserType.user, index: 3));
   }
 }
