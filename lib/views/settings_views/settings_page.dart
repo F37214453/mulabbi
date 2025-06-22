@@ -150,15 +150,6 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                   ),
                   const Divider(thickness: 1, color: Color(0xFFEDEDED)),
-                  LanguageRow(
-                    selectedLanguage: selectedLanguage,
-                    onLanguageChanged: (lang) {
-                      setState(() {
-                        selectedLanguage = lang;
-                      });
-                    },
-                  ),
-                  const Divider(thickness: 1, color: Color(0xFFEDEDED)),
                   SettingsRow(
                     title: 'الأسئلة الشائعة & الدعم',
                     icon: Icons.help_outline,
