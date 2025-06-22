@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0+1"
+  adhan_dart:
+    dependency: "direct main"
+    description:
+      name: adhan_dart
+      sha256: "3510e87a81acd816dfe11df458d236cb33f64a9132d2f5becc57ef6cbfefb565"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.2"
   app_links:
     dependency: transitive
     description:
@@ -222,6 +230,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_compass:
+    dependency: "direct main"
+    description:
+      name: flutter_compass
+      sha256: "1b4d7e6c95a675ec8482b5c9c9ccf1ebf0ced3dbec59dce28ad609da953de850"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.8.1"
   flutter_inappwebview:
     dependency: transitive
     description:

@@ -58,7 +58,7 @@ class JourneyAttachments extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => const QiblaScreen()),
+                    MaterialPageRoute(builder: (_) => const QiblaCompass()),
                   );
                 },
               ),
