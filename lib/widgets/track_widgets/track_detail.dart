@@ -83,7 +83,7 @@ class TrackDetail extends StatelessWidget {
                 onTap: () {
                   if (!isCurrentStep) return;
                   if (isLast == true) {
-                    controller.endTracking();
+                    controller.endTracking(context);
                     return;
                   }
                   controller.incrementStep();

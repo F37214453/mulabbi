@@ -120,7 +120,7 @@ class TrackController extends GetxController {
     Get.to(() => MainScaffold(userType: UserType.user, index: 2));
   }
 
-  void endTracking() async {
+  void endTracking(BuildContext context) async {
     await supabase
         .from("user_nusuk_progress")
         .update({"completed_at": DateTime.now().toString()})
@@ -130,6 +130,12 @@ class TrackController extends GetxController {
     progressId = -1;
     type = "";
     isTrackActive = false;
-    Get.to(() => MainScaffold(userType: UserType.user, index: 3));
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MainScaffold(userType: UserType.user),
+      ),
+    );
+    // Get.to(() => MainScaffold(userType: UserType.user, index: 3));
   }
 }

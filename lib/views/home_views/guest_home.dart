@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mulabbi/controllers/track_controller.dart';
 import 'package:mulabbi/views/home_views/articles/official_documents_view.dart';
 import 'package:mulabbi/views/home_views/articles/pilgrim_bag_view.dart';
+import 'package:mulabbi/views/shell/main_scaffold.dart';
+import 'package:mulabbi/views/track_views/choose_nusk.dart';
+import 'package:mulabbi/views/track_views/track_entry_view.dart';
 import 'package:mulabbi/widgets/home_widgets/build_prayer_bar.dart';
 import 'package:mulabbi/widgets/home_widgets/date_and_title_row.dart';
 import 'package:mulabbi/widgets/home_widgets/info_image_card.dart';
@@ -16,6 +21,7 @@ class GuestHome extends StatefulWidget {
 }
 
 class _GuestHomeState extends State<GuestHome> {
+  final trackController = Get.put(TrackController());
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -115,19 +121,31 @@ class _GuestHomeState extends State<GuestHome> {
                     children: [
                       // ⚪️ Umrah
                       Expanded(
-                        child: StartCard(
-                          title: 'بدء العمرة',
-                          subtitle: 'متاحة طوال العام',
-                          gradient: AppColorGrey.umrah,
+                        child: InkWell(
+                          onTap: () async {
+                            await trackController.getUserCurrentStep();
+                            trackController.registerNewTrack(4);
+                          },
+                          child: StartCard(
+                            title: 'بدء العمرة',
+                            subtitle: 'متاحة طوال العام',
+                            gradient: AppColorGrey.umrah,
+                          ),
                         ),
                       ),
                       SizedBox(width: 10),
                       // 🟤 Hajj
                       Expanded(
-                        child: StartCard(
-                          title: 'بدء الحج',
-                          subtitle: 'متاح في أيام محددة فقط',
-                          gradient: AppColorBrown.quran,
+                        child: InkWell(
+                          onTap: () async {
+                            await trackController.getUserCurrentStep();
+                            Get.to(() => ChooseNuskView());
+                          },
+                          child: StartCard(
+                            title: 'بدء الحج',
+                            subtitle: 'متاح في أيام محددة فقط',
+                            gradient: AppColorBrown.quran,
+                          ),
                         ),
                       ),
                     ],
