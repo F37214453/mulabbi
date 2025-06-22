@@ -132,6 +132,12 @@ class TrackController extends GetxController {
     progressId = -1;
     type = "";
     isTrackActive = false;
-    Get.to(() => MainScaffold(userType: UserType.user, index: 3));
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MainScaffold(userType: UserType.user),
+      ),
+    );
+    // Get.to(() => MainScaffold(userType: UserType.user, index: 3));
   }
 }
