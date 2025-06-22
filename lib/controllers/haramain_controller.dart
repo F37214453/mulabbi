@@ -43,9 +43,14 @@ class _LiveStreamPageState extends State<LiveStreamPage> {
           (context, player) => Scaffold(
             appBar: AppBar(
               title: Text(widget.title),
-              backgroundColor: Colors.brown,
+              backgroundColor: Colors.transparent,
             ),
-            body: Center(child: player),
+            body: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 119.0),
+                child: player,
+              ),
+            ),
           ),
     );
   }

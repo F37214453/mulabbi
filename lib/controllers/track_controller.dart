@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
@@ -129,7 +130,6 @@ class TrackController extends GetxController {
     progressId = -1;
     type = "";
     isTrackActive = false;
-    Get.reload();
-    Get.to(() => MainScaffold(userType: UserType.user, index: 2));
+    Get.to(() => MainScaffold(userType: UserType.user, index: 3));
   }
 }

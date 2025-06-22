@@ -52,6 +52,7 @@ class HaramBroadcastPage extends StatelessWidget {
               HaramCard(
                 title: 'المسجد \n النبوي',
                 imagePath: 'assets/images/haramain_live_madinah.png',
+
                 videoId: 'jgN8Aw0sP9A',
                 onTap: () {
                   Navigator.push(

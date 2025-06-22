@@ -13,8 +13,9 @@ void main() async {
     url: "https://mycjnevnidgeklceghsb.supabase.co",
   );
 
-  await storage.setBool("isFirstTime", false);
+  // await storage.setBool("isFirstTime", false);
   await storage.remove("isFirstTime");
+  // await storage.remove("token");
 
   runApp(MyApp());
 }
