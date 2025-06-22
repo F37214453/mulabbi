@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hint;
+  final TextEditingController? controller;
 
-  const CustomTextField({super.key, required this.hint});
+  const CustomTextField({super.key, required this.hint, this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       style: const TextStyle(fontFamily: 'Cairo'),
       decoration: InputDecoration(
         hintText: hint,

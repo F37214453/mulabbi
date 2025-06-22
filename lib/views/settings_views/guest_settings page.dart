@@ -54,22 +54,6 @@ class GuestSettingsPage extends StatelessWidget {
                             color: Color.fromARGB(255, 165, 120, 89),
                           ),
                         ),
-                        Positioned(
-                          bottom: 4,
-                          right: 4,
-                          child: Container(
-                            padding: const EdgeInsets.all(6),
-                            decoration: const BoxDecoration(
-                              color: Color.fromARGB(255, 158, 115, 84),
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Icon(
-                              Icons.camera_alt_rounded,
-                              size: 16,
-                              color: Color.fromARGB(255, 255, 255, 255),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                   ],
