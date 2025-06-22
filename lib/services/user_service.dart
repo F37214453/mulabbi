@@ -1,7 +1,6 @@
 import 'package:mulabbi/main.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:mulabbi/models/user_type.dart';
-import 'package:mulabbi/models/app_user.dart';
 import 'package:mulabbi/models/journey.dart';
 
 class UserService {
@@ -23,7 +22,7 @@ class UserService {
   // جلب نوع المستخدم الحالي
   static Future<UserType> getCurrentUserType() async {
     try {
-      final user = _supabase.auth.currentUser;
+      final user = await getCurrentUser();
 
       if (user == null) {
         return UserType.guest;
@@ -70,7 +69,7 @@ class UserService {
   // تحديث نوع المستخدم
   static Future<bool> updateUserType(UserType newType) async {
     try {
-      final user = _supabase.auth.currentUser;
+      final user = await getCurrentUser();
       if (user == null) return false;
 
       await _supabase

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mulabbi/core/colors.dart';
+import 'package:mulabbi/views/auth/login_page.dart';
+import 'package:mulabbi/views/auth/singup_page.dart';
 
 class TrackFallabackNotAuthorized extends StatelessWidget {
   const TrackFallabackNotAuthorized({super.key});
@@ -40,7 +43,7 @@ class TrackFallabackNotAuthorized extends StatelessWidget {
             SizedBox(height: 24),
             InkWell(
               onTap: () {
-                // Redirect to Signin
+                Get.to(() => LoginScreen());
               },
               child: Container(
                 width: 246,
@@ -63,7 +66,7 @@ class TrackFallabackNotAuthorized extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                // Redirect to Signup page
+                Get.to(() => SingupPage());
               },
               child: Text(
                 "إنشاء حساب جديد",

@@ -180,7 +180,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         response.session!.accessToken,
                       );
 
-                      Get.to(() => MainScaffold(userType: UserType.guest));
+                      Get.to(() => MainScaffold(userType: UserType.user));
                     },
                   ),
                 ),

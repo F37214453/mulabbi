@@ -3,9 +3,8 @@ import 'package:mulabbi/core/colors.dart';
 import 'package:mulabbi/main.dart';
 import 'package:mulabbi/services/user_service.dart';
 import 'package:mulabbi/views/Introductory_screens/onboarding/onboarding_page1.dart';
-import 'package:mulabbi/views/auth/login_page.dart';
+import 'package:mulabbi/views/Introductory_screens/welcome_screen.dart';
 import 'package:mulabbi/views/shell/main_scaffold.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class IsNewUserScreen extends StatefulWidget {
   const IsNewUserScreen({super.key});
@@ -35,7 +34,7 @@ class _IsNewUserScreenState extends State<IsNewUserScreen> {
           );
         }
         if (!snapshot.hasData || getFirstTime() == false) {
-          return LoginScreen();
+          return WelcomeScreen();
         }
 
         if (!snapshot.hasData) {

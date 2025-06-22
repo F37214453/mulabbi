@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mulabbi/core/colors.dart';
 import 'package:mulabbi/views/auth/login_page.dart';
+import 'package:mulabbi/views/auth/singup_page.dart';
 import 'package:mulabbi/views/shell/main_scaffold.dart';
 import 'package:mulabbi/widgets/introductory_screens_widgets/language_icon_button.dart';
 import 'package:mulabbi/widgets/introductory_screens_widgets/language_dialog.dart';
@@ -162,7 +163,7 @@ class WelcomeScreen extends StatelessWidget {
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        // TODO: Navigate to SignUpScreen
+                        Get.to(() => SingupPage());
                       },
                       child: const Text(
                         'انشاء حساب جديد',
