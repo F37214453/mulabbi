@@ -109,7 +109,7 @@ class _ZadPageViewState extends State<ZadPageView> {
         ),
         const Positioned(
           top: 290,
-          left: 250,
+          right: 35,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -154,7 +154,7 @@ class _ZadPageViewState extends State<ZadPageView> {
 
   Widget buildSearchBar() {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 17.5),
       child: TextField(
         textAlign: TextAlign.right,
         textDirection: TextDirection.rtl,
@@ -191,36 +191,39 @@ class _ZadPageViewState extends State<ZadPageView> {
   Widget buildCategoryRow() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          spacing: 12,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            CategoryWidget(
-              title: 'الصحة والسلامة',
-              imagePath: 'assets/images/zad_main.png',
-              onTap: () {},
-            ),
-            CategoryWidget(
-              title: 'الحج',
-              imagePath: 'assets/images/zad_main.png',
-              onTap: () {},
-            ),
-            CategoryWidget(
-              title: 'العمرة',
-              imagePath: 'assets/images/zad_main.png',
-              onTap: () {},
-            ),
-          ],
-        ),
+      child: Row(
+        spacing: 16,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CategoryWidget(
+            title: 'الصحة والسلامة',
+            imagePath: 'assets/images/healthy.webp',
+            heigth: 80,
+            width: 150,
+            onTap: () {},
+          ),
+          CategoryWidget(
+            title: 'الحج',
+            imagePath: 'assets/images/hajjj.jpeg',
+            heigth: 90,
+            width: 190,
+            onTap: () {},
+          ),
+          CategoryWidget(
+            title: 'العمرة',
+            imagePath: 'assets/images/Umrah.png',
+            heigth: 85,
+            width: 190,
+            onTap: () {},
+          ),
+        ],
       ),
     );
   }
 
   Widget sectionTitle(String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 4),
       child: Align(
         alignment: Alignment.centerRight,
         child: Text(
@@ -249,13 +252,13 @@ class _ZadPageViewState extends State<ZadPageView> {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       reverse: true,
-      padding: const EdgeInsets.symmetric(horizontal: 5),
-      child: Row(
-        children: List.generate(topics.length, (index) {
-          final item = topics[index];
-          return Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: TopicWidget(
+      // padding: const EdgeInsets.symmetric(horizontal: 1),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 13.0),
+        child: Row(
+          children: List.generate(topics.length, (index) {
+            final item = topics[index];
+            return TopicWidget(
               topicTitle: item['title'] ?? '',
               imagePath: item['image_url'] ?? 'assets/images/zad_main.png',
               Category: item['category']['title'],
@@ -264,9 +267,9 @@ class _ZadPageViewState extends State<ZadPageView> {
                 final topicTitle = item['title']; // أو 'title' حسب العمود عندك
                 Get.to(() => ArticlePage(topicTitle: topicTitle));
               },
-            ),
-          );
-        }),
+            );
+          }),
+        ),
       ),
     );
   }
