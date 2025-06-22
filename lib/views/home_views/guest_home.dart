@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mulabbi/controllers/track_controller.dart';
+import 'package:mulabbi/models/nusk_details.dart';
 import 'package:mulabbi/views/home_views/articles/official_documents_view.dart';
 import 'package:mulabbi/views/home_views/articles/pilgrim_bag_view.dart';
 import 'package:mulabbi/views/track_views/choose_nusk.dart';
@@ -10,6 +11,7 @@ import 'package:mulabbi/widgets/home_widgets/info_image_card.dart';
 import 'package:mulabbi/widgets/home_widgets/journey_attachments.dart';
 import 'package:mulabbi/widgets/home_widgets/start_card.dart';
 import 'package:mulabbi/core/colors.dart';
+import 'package:mulabbi/widgets/track_widgets/track_detail.dart';
 
 class GuestHome extends StatefulWidget {
   const GuestHome({super.key});
@@ -19,9 +21,9 @@ class GuestHome extends StatefulWidget {
 }
 
 class _GuestHomeState extends State<GuestHome> {
-  final trackController = Get.put(TrackController());
   @override
   Widget build(BuildContext context) {
+    final trackController = Get.put(TrackController());
     return Stack(
       children: [
         // 0️⃣ Full-screen background
@@ -115,38 +117,172 @@ class _GuestHomeState extends State<GuestHome> {
                 // 🟤 Start Journey Cards
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    children: [
-                      // ⚪️ Umrah
-                      Expanded(
-                        child: InkWell(
-                          onTap: () async {
-                            await trackController.getUserCurrentStep();
-                            trackController.registerNewTrack(4);
-                          },
-                          child: StartCard(
-                            title: 'بدء العمرة',
-                            subtitle: 'متاحة طوال العام',
-                            gradient: AppColorGrey.umrah,
+                  child: FutureBuilder(
+                    future: trackController.getUserCurrentStep(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(
+                          child: CircularProgressIndicator(
+                            color: AppColorBrown.gradientColors.first,
                           ),
+                        );
+                      }
+                      if (!trackController.isTrackActive) {
+                        return Row(
+                          children: [
+                            // ⚪️ Umrah
+                            Expanded(
+                              child: InkWell(
+                                onTap: () async {
+                                  await trackController.getUserCurrentStep();
+                                  trackController.registerNewTrack(4);
+                                },
+                                child: StartCard(
+                                  title: 'بدء العمرة',
+                                  subtitle: 'متاحة طوال العام',
+                                  gradient: AppColorGrey.umrah,
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            // 🟤 Hajj
+                            Expanded(
+                              child: InkWell(
+                                onTap: () async {
+                                  await trackController.getUserCurrentStep();
+                                  Get.to(() => ChooseNuskView());
+                                },
+                                child: StartCard(
+                                  title: 'بدء الحج',
+                                  subtitle: 'متاح في أيام محددة فقط',
+                                  gradient: AppColorBrown.quran,
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      }
+                      Steps? stepInfo = trackController.stepInfo;
+
+                      return Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          gradient:
+                              trackController.type == "umrah"
+                                  ? AppColorGrey.umrah
+                                  : AppColorBrown.hajj,
                         ),
-                      ),
-                      SizedBox(width: 10),
-                      // 🟤 Hajj
-                      Expanded(
-                        child: InkWell(
-                          onTap: () async {
-                            await trackController.getUserCurrentStep();
-                            Get.to(() => ChooseNuskView());
-                          },
-                          child: StartCard(
-                            title: 'بدء الحج',
-                            subtitle: 'متاح في أيام محددة فقط',
-                            gradient: AppColorBrown.quran,
-                          ),
+                        child: Row(
+                          spacing: 10,
+                          textDirection: TextDirection.rtl,
+                          children: [
+                            Expanded(
+                              child: Image.asset(
+                                stepInfo?.shortImage ??
+                                    "assets/images/step-short-1.png",
+                                width: 175,
+                                height: 93,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(5),
+                                child: SizedBox(
+                                  child: Column(
+                                    spacing: 4,
+                                    textDirection: TextDirection.rtl,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        stepInfo?.shortTitle ?? "النسك الحالي",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                        ),
+                                        textDirection: TextDirection.rtl,
+                                      ),
+                                      Text(
+                                        stepInfo?.shortDescription ??
+                                            "وصف للنسك الحالي",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 10,
+                                          color: Colors.white,
+                                        ),
+                                        textDirection: TextDirection.rtl,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 5.0,
+                                            ),
+                                            child: InkWell(
+                                              onTap: () {
+                                                showDialog(
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return TrackDetail(
+                                                      title:
+                                                          stepInfo
+                                                              ?.shortTitle ??
+                                                          "عنوان للنسك",
+                                                      trackNumber:
+                                                          trackController
+                                                              .getCurrentStep(),
+                                                      details:
+                                                          stepInfo?.details,
+                                                      isReadOnly: true,
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                              child: Container(
+                                                padding: EdgeInsets.all(5),
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFD9A96B),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                        100,
+                                                      ),
+                                                ),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.arrow_back_ios,
+                                                      size: 6,
+                                                    ),
+                                                    Text(
+                                                      "عرض التفاصيل",
+                                                      style: TextStyle(
+                                                        fontSize: 8,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
+                      );
+                    },
                   ),
                 ),
 

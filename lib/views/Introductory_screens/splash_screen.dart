@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mulabbi/views/Introductory_screens/is_new_user_screen.dart';
-// Adjust path if needed
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -12,11 +12,13 @@ class TrackDetail extends StatelessWidget {
     required this.trackNumber,
     this.details,
     this.isLast,
+    this.isReadOnly = false,
   });
   final String title;
   final int trackNumber;
   final List<Details>? details;
   final bool? isLast;
+  final bool? isReadOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -79,49 +81,51 @@ class TrackDetail extends StatelessWidget {
               }),
 
               SizedBox(height: 43),
-              InkWell(
-                onTap: () {
-                  if (!isCurrentStep) return;
-                  if (isLast == true) {
-                    controller.endTracking(context);
-                    return;
-                  }
-                  controller.incrementStep();
-                  Get.back();
-                },
-                child: Container(
-                  width: 236,
-                  height: 47,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(44),
-                    gradient:
-                        isCurrentStep
-                            ? AppColorBrown.gradientBrown
-                            : trackNumber > controller.getCurrentStep()
-                            ? AppColorGrey.lockedNumber
-                            : AppColorGreen.greenish,
-                  ),
+              isReadOnly == false
+                  ? InkWell(
+                    onTap: () {
+                      if (!isCurrentStep) return;
+                      if (isLast == true) {
+                        controller.endTracking(context);
+                        return;
+                      }
+                      controller.incrementStep();
+                      Get.back();
+                    },
+                    child: Container(
+                      width: 236,
+                      height: 47,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(44),
+                        gradient:
+                            isCurrentStep
+                                ? AppColorBrown.gradientBrown
+                                : trackNumber > controller.getCurrentStep()
+                                ? AppColorGrey.lockedNumber
+                                : AppColorGreen.greenish,
+                      ),
 
-                  child: Center(
-                    child: Text(
-                      isLast == true
-                          ? isUmrah
-                              ? "إتمام العمرة"
-                              : "إتمام الحج"
-                          : isCurrentStep
-                          ? "انتقل للخطوة القادمة"
-                          : trackNumber > controller.getCurrentStep()
-                          ? "لم تصل للخطوة الحالية"
-                          : "لقد اتممت هذه الخطوة",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
+                      child: Center(
+                        child: Text(
+                          isLast == true
+                              ? isUmrah
+                                  ? "إتمام العمرة"
+                                  : "إتمام الحج"
+                              : isCurrentStep
+                              ? "انتقل للخطوة القادمة"
+                              : trackNumber > controller.getCurrentStep()
+                              ? "لم تصل للخطوة الحالية"
+                              : "لقد اتممت هذه الخطوة",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ),
+                  )
+                  : SizedBox(),
             ],
           ),
         ),
