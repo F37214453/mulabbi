@@ -25,11 +25,8 @@ class OnboardingPage1 extends StatelessWidget {
                 children: [
                   // 🔼 Top Row: Language + Skip
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      LanguageIconButton(
-                        onTap: () => showLanguageDialog(context),
-                      ),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushReplacement(

@@ -31,14 +31,6 @@ class OnboardingPage3 extends StatelessWidget {
                     horizontal: 33,
                     vertical: 20,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      LanguageIconButton(
-                        onTap: () => showLanguageDialog(context),
-                      ),
-                    ],
-                  ),
                 ),
 
                 // 🔽 Title area

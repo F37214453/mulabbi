@@ -31,15 +31,6 @@ class WelcomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   // 🔸 Top right icon
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      LanguageIconButton(
-                        onTap: () => showLanguageDialog(context),
-                      ),
-                    ],
-                  ),
-
                   const Spacer(),
 
                   // 🔸 Guest Button

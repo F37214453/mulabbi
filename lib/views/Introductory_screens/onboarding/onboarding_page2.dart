@@ -48,11 +48,8 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                     vertical: 20,
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      LanguageIconButton(
-                        onTap: () => showLanguageDialog(context),
-                      ),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushReplacement(

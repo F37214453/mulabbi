@@ -33,7 +33,7 @@ class _IsNewUserScreenState extends State<IsNewUserScreen> {
             ),
           );
         }
-        if (!snapshot.hasData || getFirstTime() == false) {
+        if (!snapshot.hasData && getFirstTime() == false) {
           return WelcomeScreen();
         }
 
