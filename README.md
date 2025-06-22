@@ -91,7 +91,14 @@ an application to help pilgrims detects their nusk step by step
 | Adeiyah     | [API Link](https://68297d8b6075e87073a69d31.mockapi.io/duas) `There's local verison`                                                                                 | Adeiyah              |
 
 [^4]: Guidelines
+<img width="349" alt="Screenshot 1446-12-26 at 8 55 16 AM" src="https://github.com/user-attachments/assets/8c8f8eeb-4d1c-48d0-8a1d-2ed32ebea21b" />
+
+<img width="349" alt="Screenshot 1446-12-26 at 8 55 58 AM" src="https://github.com/user-attachments/assets/b39b0617-47be-4c1e-a762-73506948b44e" />
+
+<img width="349" alt="Screenshot 1446-12-26 at 8 56 24 AM" src="https://github.com/user-attachments/assets/5fbdc904-7fba-47e4-8ee0-c3a15f6d993a" />
 
 ## Running the app within your flutter
+
+
 
 > Soon...
