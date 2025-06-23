@@ -109,5 +109,5 @@ an application to help pilgrims detects their nusk step by step
 
 ## Running the app within your flutter
 
-<img src="images/your-animation.gif" width="300" />
+<img src="Simulator Screen Recording - iPhone 16 Plus - 2025-06-23 at 23 (online-video-cutter.com).gif" width="300" />
 
