@@ -97,11 +97,11 @@ an application to help pilgrims detects their nusk step by step
 
 [^6]: Guidelines
 <p align="center">
-<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.25 PM.jpeg" style="margin-right: 10px;" />
-<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM (1).jpeg" style="margin-right: 10px;" />
-<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM (2).jpeg" style="margin-right: 10px;"/>
-<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM.jpeg" style="margin-right: 10px;"/>
-<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM.jpeg" style="margin-right: 10px;"/>
+<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM (2).jpeg" style="margin-right: 20px;"/>
+<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM (1).jpeg" style="margin-right: 20px;" />
+<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM.jpeg" style="margin-right: 20px;"/>
+<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.25 PM (1).jpeg" style="margin-right: 20px;"/>
+<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.25 PM.jpeg" style="margin-right: 20px;" />
 </p>
 
 
@@ -109,3 +109,4 @@ an application to help pilgrims detects their nusk step by step
 
 ## Running the app within your flutter
 
+> Soon...
