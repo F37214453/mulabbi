@@ -118,6 +118,11 @@ class TrackController extends GetxController {
     if (isPending && isTrackActive) return;
 
     isPending = true;
+    if (currentUserId == null) {
+      Get.to(MainScaffold(userType: UserType.guest, index: 2));
+      return;
+    }
+
     final nusuk = await supabase
         .from("user_nusuk")
         .insert({"user_id": currentUserId, "nusuk_id": nusukId})

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mulabbi/core/colors.dart';
+import 'package:mulabbi/main.dart';
+import 'package:mulabbi/views/Introductory_screens/welcome_screen.dart';
 import 'package:mulabbi/views/settings_views/user_profile.dart';
 import 'package:mulabbi/widgets/settings_widgets/settings_row.dart';
 import 'package:mulabbi/widgets/settings_widgets/toggle_row.dart';
@@ -44,8 +46,14 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Future<void> _signOut() async {
-    await Supabase.instance.client.auth.signOut();
-    Navigator.of(context).pushNamedAndRemoveUntil('/welcome', (_) => false);
+    try {
+      await Supabase.instance.client.auth.signOut();
+      await storage.remove("token");
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => WelcomeScreen()),
+        (_) => false,
+      );
+    } catch (e) {}
   }
 
   @override

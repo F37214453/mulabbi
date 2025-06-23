@@ -123,22 +123,28 @@ class _RegisterScreenState extends State<SingupPage> {
                   text: "إنشاء حساب",
                   gradient: AppColorBrown.gradientBrown,
                   onPressed: () async {
-                    final res = await supabase.auth.signUp(
-                      email: emailController.text,
-                      password: passwordController.text,
-                    );
-                    await supabase.from('users').insert({
-                      'id': res.user?.id,
-                      'name': nameController.text,
-                      'email': emailController.text,
-                    });
-                    Get.offUntil(
-                      MaterialPageRoute(
-                        builder:
-                            (context) => OtpScreen(email: emailController.text),
-                      ),
-                      (route) => false,
-                    );
+                    try {
+                      final res = await supabase.auth.signUp(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+                      await supabase.from('users').insert({
+                        'id': res.user?.id,
+                        'name': nameController.text,
+                        'email': emailController.text,
+                      });
+                      Get.offUntil(
+                        MaterialPageRoute(
+                          builder:
+                              (context) =>
+                                  OtpScreen(email: emailController.text),
+                        ),
+                        (route) => false,
+                      );
+                      // ignore: empty_catches
+                    } catch (e) {
+                      print(e);
+                    }
                   },
                 ),
               ),

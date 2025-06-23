@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mulabbi/core/colors.dart';
+import 'package:mulabbi/services/user_service.dart';
 import 'package:mulabbi/views/auth/login_page.dart';
 import 'package:mulabbi/views/auth/singup_page.dart';
 import 'package:mulabbi/views/shell/main_scaffold.dart';
@@ -10,6 +11,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UserService.registerFirstTime();
     return Scaffold(
       body: Stack(
         children: [
