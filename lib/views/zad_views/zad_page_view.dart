@@ -268,6 +268,7 @@ class _ZadPageViewState extends State<ZadPageView> {
         children: [
           // 1) The Row containing only your 3 fixed category cards:
           Row(
+            spacing: 12,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CategoryWidget(
@@ -277,7 +278,6 @@ class _ZadPageViewState extends State<ZadPageView> {
                 width: 150,
                 onTap: () => setState(() => selectedCategoryId = 1),
               ),
-              const SizedBox(width: 16),
               CategoryWidget(
                 title: 'الحج',
                 imagePath: 'assets/images/haj.png',
@@ -285,7 +285,6 @@ class _ZadPageViewState extends State<ZadPageView> {
                 width: 200,
                 onTap: () => setState(() => selectedCategoryId = 2),
               ),
-              const SizedBox(width: 16),
               CategoryWidget(
                 title: 'العمرة',
                 imagePath: 'assets/images/Umrah.png',
