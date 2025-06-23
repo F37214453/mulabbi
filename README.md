@@ -109,4 +109,5 @@ an application to help pilgrims detects their nusk step by step
 
 ## Running the app within your flutter
 
-> Soon...
+<img src="images/your-animation.gif" width="300" />
+
