@@ -8,12 +8,12 @@ class PrayerItem extends StatelessWidget {
   final bool isActive;
 
   const PrayerItem({
-    Key? key,
+    super.key,
     required this.name,
     required this.time,
     required this.iconPath,
     this.isActive = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

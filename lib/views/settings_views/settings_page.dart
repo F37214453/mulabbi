@@ -43,6 +43,11 @@ class _SettingsPageState extends State<SettingsPage> {
     }
   }
 
+  Future<void> _signOut() async {
+    await Supabase.instance.client.auth.signOut();
+    Navigator.of(context).pushNamedAndRemoveUntil('/welcome', (_) => false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -81,22 +86,6 @@ class _SettingsPageState extends State<SettingsPage> {
                               Icons.person,
                               size: 90,
                               color: Color(0xFFA57859),
-                            ),
-                          ),
-                          Positioned(
-                            bottom: 4,
-                            right: 4,
-                            child: Container(
-                              padding: const EdgeInsets.all(6),
-                              decoration: const BoxDecoration(
-                                color: Color(0xFF9E7354),
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Icon(
-                                Icons.camera_alt_rounded,
-                                size: 16,
-                                color: Colors.white,
-                              ),
                             ),
                           ),
                         ],
@@ -160,6 +149,12 @@ class _SettingsPageState extends State<SettingsPage> {
                         ),
                       );
                     },
+                  ),
+                  const Divider(thickness: 1, color: Color(0xFFEDEDED)),
+                  SettingsRow(
+                    title: 'تسجيل خروج',
+                    icon: Icons.logout,
+                    onTap: _signOut,
                   ),
                 ],
               ),

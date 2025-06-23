@@ -109,7 +109,7 @@ class OtpScreen extends StatelessWidget {
                 height: 51,
                 child: PrimaryButton(
                   text: "تحقق",
-                  color: const Color(0xFF5D4037),
+                  gradient: AppColorBrown.gradientBrown,
                   onPressed: () => controller.verifyOtp(email),
                 ),
               ),
