@@ -332,8 +332,9 @@ class _ZadPageViewState extends State<ZadPageView> {
 
   Widget buildTopicSection(List<Map<String, dynamic>> topics) {
     if (isLoading) return const Center(child: CircularProgressIndicator());
-    if (topics.isEmpty)
+    if (topics.isEmpty) {
       return const Center(child: Text('لا توجد مواضيع حالياً'));
+    }
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,

@@ -15,7 +15,7 @@ class TrackFallbackNonActive extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Image.asset(
-          "assets/images/steps-background.png",
+          "assets/images/track_page.png",
           width: 600,
           fit: BoxFit.cover,
         ),

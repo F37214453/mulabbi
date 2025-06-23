@@ -175,16 +175,16 @@ class _GuestHomeState extends State<GuestHome> {
                                   : AppColorBrown.hajj,
                         ),
                         child: Row(
-                          spacing: 10,
+                          spacing: 8,
                           textDirection: TextDirection.rtl,
                           children: [
                             Expanded(
                               child: Image.asset(
                                 stepInfo?.shortImage ??
                                     "assets/images/step-short-1.png",
-                                width: 175,
+                                width: 180,
                                 height: 93,
-                                fit: BoxFit.contain,
+                                fit: BoxFit.cover,
                               ),
                             ),
                             Expanded(
@@ -260,12 +260,15 @@ class _GuestHomeState extends State<GuestHome> {
                                                   children: [
                                                     Icon(
                                                       Icons.arrow_back_ios,
-                                                      size: 6,
+                                                      size: 9,
+                                                      color: Colors.black,
                                                     ),
                                                     Text(
                                                       "عرض التفاصيل",
                                                       style: TextStyle(
                                                         fontSize: 8,
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                       ),
                                                     ),
                                                   ],

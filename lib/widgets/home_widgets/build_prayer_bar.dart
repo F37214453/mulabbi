@@ -5,7 +5,7 @@ import 'package:adhan/adhan.dart';
 import 'prayer_item.dart';
 
 class PrayerBar extends StatefulWidget {
-  const PrayerBar({Key? key}) : super(key: key);
+  const PrayerBar({super.key});
 
   @override
   _PrayerBarState createState() => _PrayerBarState();

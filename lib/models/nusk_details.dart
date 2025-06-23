@@ -53,13 +53,13 @@ class Steps {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['timing'] = this.timing;
-    data["shortTitle"] = this.shortTitle;
-    data["shortDescription"] = this.shortDescription;
-    data["shortImage"] = this.shortImage;
-    if (this.details != null) {
-      data['details'] = this.details!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['timing'] = timing;
+    data["shortTitle"] = shortTitle;
+    data["shortDescription"] = shortDescription;
+    data["shortImage"] = shortImage;
+    if (details != null) {
+      data['details'] = details!.map((v) => v.toJson()).toList();
     }
     return data;
   }
