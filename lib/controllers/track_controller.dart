@@ -13,6 +13,7 @@ class TrackController extends GetxController {
   Steps? stepInfo;
   int progressId = -1;
   bool isTrackActive = false;
+  bool isPending = false;
   String type = "";
 
   List<nusks_details> nusks = [];
@@ -98,16 +99,23 @@ class TrackController extends GetxController {
     return currentStep.toInt();
   }
 
-  incrementStep() async => {
-    await supabase
-        .from("user_nusuk_progress")
-        .update({"step_number": getCurrentStep() + 1})
-        .eq("user_nusuk_pr_id", progressId),
+  Future<void> incrementStep() async => {
+    if (!isPending)
+      {
+        isPending = true,
+
+        await supabase
+            .from("user_nusuk_progress")
+            .update({"step_number": getCurrentStep() + 1})
+            .eq("user_nusuk_pr_id", progressId),
+        isPending = false,
+      },
   };
 
   void registerNewTrack(int nusukId) async {
-    if (isTrackActive) return;
+    if (isPending && isTrackActive) return;
 
+    isPending = true;
     final nusuk = await supabase
         .from("user_nusuk")
         .insert({"user_id": currentUserId, "nusuk_id": nusukId})
@@ -128,6 +136,7 @@ class TrackController extends GetxController {
 
     Get.reloadAll();
     Get.to(() => MainScaffold(userType: UserType.user, index: 2));
+    isPending = false;
   }
 
   void endTracking(BuildContext context) async {
@@ -140,6 +149,7 @@ class TrackController extends GetxController {
     progressId = -1;
     type = "";
     isTrackActive = false;
+    isPending = false;
     Navigator.push(
       context,
       MaterialPageRoute(
