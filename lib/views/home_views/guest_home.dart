@@ -135,6 +135,7 @@ class _GuestHomeState extends State<GuestHome> {
                               child: InkWell(
                                 onTap: () async {
                                   await trackController.getUserCurrentStep();
+                                  if (trackController.isPending) return;
                                   trackController.registerNewTrack(4);
                                 },
                                 child: StartCard(
