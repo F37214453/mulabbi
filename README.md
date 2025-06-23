@@ -96,11 +96,13 @@ an application to help pilgrims detects their nusk step by step
 | Adeiyah     | [API Link](https://68297d8b6075e87073a69d31.mockapi.io/duas) `There's local verison`                                                                                 | Adeiyah              |
 
 [^6]: Guidelines
-<img width="200" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.25 PM.jpeg" />
-<img width="200" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM (1).jpeg" />
-<img width="200" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM (2).jpeg" />
-<img width="200" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM.jpeg" />
-<img width="200" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM.jpeg" />
+<p align="center">
+<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.25 PM.jpeg" style="margin-right: 10px;" />
+<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM (1).jpeg" style="margin-right: 10px;" />
+<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM (2).jpeg" style="margin-right: 10px;"/>
+<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM.jpeg" style="margin-right: 10px;"/>
+<img width="150" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM.jpeg" style="margin-right: 10px;"/>
+</p>
 
 
 
