@@ -73,7 +73,7 @@ class HaramCard extends StatelessWidget {
 
           Positioned(
             bottom: 1,
-            right: 0,
+            right: 14,
             child: Stack(
               alignment: Alignment.bottomRight,
               children: [

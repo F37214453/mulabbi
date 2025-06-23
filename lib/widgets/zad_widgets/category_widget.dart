@@ -28,8 +28,8 @@ class CategoryWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: 112,
-        height: 120,
+        width: 118,
+        height: 110,
         decoration: BoxDecoration(
           color: const Color(0xFFEBE4D9),
           borderRadius: BorderRadius.circular(16),

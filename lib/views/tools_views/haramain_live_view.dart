@@ -17,16 +17,18 @@ class HaramBroadcastPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios_new, color: Color(0xFF5D4037)),
           onPressed: () => Navigator.pop(context),
         ),
-        centerTitle: true,
         title: const Text(
           'بث الحرمين',
           style: TextStyle(
-            color: Color(0xFF5D4037),
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Cairo',
+            fontSize: 30,
+            fontWeight: FontWeight.w700,
+            color: Color(0xFF7E5A3B),
+            fontFamily: 'AlNile', // ← matching what you wrote in pubspec
+            height: 1.0,
           ),
+          textAlign: TextAlign.center,
         ),
+        centerTitle: true,
       ),
       body: SafeArea(
         child: Center(
@@ -42,8 +44,10 @@ class HaramBroadcastPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) =>
-                              LiveStreamPage(videoId: '-BlZnoDjxmM', title: ''),
+                          (context) => LiveStreamPage(
+                            videoId: '-BlZnoDjxmM',
+                            title: 'المسجد الحرام',
+                          ),
                     ),
                   );
                 },

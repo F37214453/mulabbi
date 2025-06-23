@@ -4,8 +4,6 @@ import 'package:mulabbi/core/colors.dart';
 import 'package:mulabbi/views/auth/login_page.dart';
 import 'package:mulabbi/views/auth/singup_page.dart';
 import 'package:mulabbi/views/shell/main_scaffold.dart';
-import 'package:mulabbi/widgets/introductory_screens_widgets/language_icon_button.dart';
-import 'package:mulabbi/widgets/introductory_screens_widgets/language_dialog.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

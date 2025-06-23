@@ -122,7 +122,7 @@ flutter:
 
     - family: AlNile
       fonts:
-        - asset: assets/fonts/nile/Al Nile.ttc
+        - asset: assets/fonts/nile/Al_Nile.ttc
 
   #   - family: Schyler
   #     fonts:

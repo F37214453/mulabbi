@@ -81,7 +81,7 @@ class _TrackEntryViewState extends State<TrackEntryView> {
             render = TrackFallbackNonActive();
           }
           if (trackController.currentUserId == null) {
-            render = TrackFallabackNotAuthorized();
+            render = TrackFallbackNotAuthorized();
           }
           if (snapshot.connectionState == ConnectionState.done &&
               trackController.isTrackActive) {

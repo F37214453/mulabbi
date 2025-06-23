@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mulabbi/core/colors.dart';
 import 'package:mulabbi/views/settings_views/user_profile.dart';
-import 'package:mulabbi/widgets/settings_widgets/language_row.dart';
 import 'package:mulabbi/widgets/settings_widgets/settings_row.dart';
 import 'package:mulabbi/widgets/settings_widgets/toggle_row.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';

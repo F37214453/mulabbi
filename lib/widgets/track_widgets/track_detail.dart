@@ -78,7 +78,7 @@ class TrackDetail extends StatelessWidget {
                 return Column(
                   children: [Divider(), TrackDetailDescription(detail: detail)],
                 );
-              }).toList(),
+              }),
 
               SizedBox(height: 43),
               isReadOnly == false
