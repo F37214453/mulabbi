@@ -15,7 +15,6 @@ class OtpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(OtpController()); // استخدم GetX Controller
     controller.startTimer();
-    TextEditingController codeController = TextEditingController();
     return AuthContainer(
       title: "تأكيد الحساب",
       child: Padding(

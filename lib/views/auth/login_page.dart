@@ -7,7 +7,6 @@ import 'package:mulabbi/views/shell/main_scaffold.dart';
 // import 'package:mulabbi/views/shell/main_scaffold.dart';
 import 'package:mulabbi/widgets/auth_widgets/auth_custom.dart';
 import 'package:mulabbi/widgets/tools_widgets/button_custom.dart';
-import 'package:mulabbi/widgets/auth_widgets/social_widget.dart';
 import 'package:mulabbi/widgets/auth_widgets/textfield_custom.dart';
 
 import 'package:supabase_flutter/supabase_flutter.dart';

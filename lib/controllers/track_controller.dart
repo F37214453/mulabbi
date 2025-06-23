@@ -47,9 +47,11 @@ class TrackController extends GetxController {
       )
     )
 ''')
-          .eq("user_nusuk.user_id", currentUserId!)
+          .eq("user_id", currentUserId!)
           .or("completed_at.is.null");
+      // .order("user_nusuk", nullsFirst: false, ascending: false);
       final data = response.first;
+      print(data);
       if (data["completed_at"] != null || data["user_nusuk"] == null) {
         isTrackActive = false;
         throw Error();
@@ -127,6 +129,7 @@ class TrackController extends GetxController {
                       ''');
     final progress =
         await supabase.from("user_nusuk_progress").insert({
+          "user_id": currentUserId,
           "user_nusuk_id": nusuk.first["user_nusuk_id"],
           "step_number": 1,
         }).select();
