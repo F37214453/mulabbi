@@ -99,7 +99,8 @@ an application to help pilgrims detects their nusk step by step
 <img width="200" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.25 PM.jpeg" />
 <img width="200" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM (1).jpeg" />
 <img width="200" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM (2).jpeg" />
-<img width="200" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.25 PM.jpeg" />
+<img width="200" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM.jpeg" />
+<img width="200" alt="Screen" src="WhatsApp Image 2025-06-23 at 11.33.24 PM.jpeg" />
 
 
 
