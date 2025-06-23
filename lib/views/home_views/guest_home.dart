@@ -4,7 +4,9 @@ import 'package:mulabbi/controllers/track_controller.dart';
 import 'package:mulabbi/models/nusk_details.dart';
 import 'package:mulabbi/views/home_views/articles/official_documents_view.dart';
 import 'package:mulabbi/views/home_views/articles/pilgrim_bag_view.dart';
+import 'package:mulabbi/views/shell/main_scaffold.dart';
 import 'package:mulabbi/views/track_views/choose_nusk.dart';
+import 'package:mulabbi/views/track_views/track_entry_view.dart';
 import 'package:mulabbi/widgets/home_widgets/build_prayer_bar.dart';
 import 'package:mulabbi/widgets/home_widgets/date_and_title_row.dart';
 import 'package:mulabbi/widgets/home_widgets/info_image_card.dart';
@@ -151,6 +153,15 @@ class _GuestHomeState extends State<GuestHome> {
                               child: InkWell(
                                 onTap: () async {
                                   await trackController.getUserCurrentStep();
+                                  if (trackController.currentUserId == null) {
+                                    Get.to(
+                                      () => MainScaffold(
+                                        userType: UserType.guest,
+                                        index: 2,
+                                      ),
+                                    );
+                                    return;
+                                  }
                                   Get.to(() => ChooseNuskView());
                                 },
                                 child: StartCard(
