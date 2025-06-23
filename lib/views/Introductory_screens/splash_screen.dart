@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'onboarding/onboarding_page1.dart'; // Adjust path if needed
+import 'package:mulabbi/views/Introductory_screens/is_new_user_screen.dart';
+// Adjust path if needed
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,10 +14,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(milliseconds: 1500), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const OnboardingPage1()),
+        MaterialPageRoute(builder: (_) => IsNewUserScreen()),
       );
     });
   }

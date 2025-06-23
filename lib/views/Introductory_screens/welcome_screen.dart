@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mulabbi/core/colors.dart';
-import 'package:mulabbi/views/home_views/guest_home.dart';
+import 'package:mulabbi/views/auth/login_page.dart';
+import 'package:mulabbi/views/auth/singup_page.dart';
 import 'package:mulabbi/views/shell/main_scaffold.dart';
-import 'package:mulabbi/widgets/introductory_screens_widgets/language_icon_button.dart';
-import 'package:mulabbi/widgets/introductory_screens_widgets/language_dialog.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -29,15 +29,6 @@ class WelcomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   // 🔸 Top right icon
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      LanguageIconButton(
-                        onTap: () => showLanguageDialog(context),
-                      ),
-                    ],
-                  ),
-
                   const Spacer(),
 
                   // 🔸 Guest Button
@@ -118,7 +109,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
-                        // TODO: Navigate to LoginScreen
+                        Get.to(() => LoginScreen());
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
@@ -161,7 +152,7 @@ class WelcomeScreen extends StatelessWidget {
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        // TODO: Navigate to SignUpScreen
+                        Get.to(() => SingupPage());
                       },
                       child: const Text(
                         'انشاء حساب جديد',

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mulabbi/core/colors.dart';
 import 'package:mulabbi/views/settings_views/user_profile.dart';
-import 'package:mulabbi/widgets/settings_widgets/language_row.dart';
 import 'package:mulabbi/widgets/settings_widgets/settings_row.dart';
 import 'package:mulabbi/widgets/settings_widgets/toggle_row.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:mulabbi/views/settings_views/faq_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -15,6 +16,32 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   bool notificationsEnabled = true;
   String selectedLanguage = 'ar'; // 'ar' for Arabic, 'en' for English
+  Map<String, dynamic>? userData;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserData();
+  }
+
+  Future<void> _fetchUserData() async {
+    final user = Supabase.instance.client.auth.currentUser;
+
+    if (user != null) {
+      final response =
+          await Supabase.instance.client
+              .from('users')
+              .select()
+              .eq('id', user.id)
+              .single();
+
+      if (mounted) {
+        setState(() {
+          userData = response;
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +51,6 @@ class _SettingsPageState extends State<SettingsPage> {
         backgroundColor: const Color(0xFFF9F7F4),
         body: Column(
           children: [
-            // 🟤 Profile Header with gradient arc
             Stack(
               children: [
                 ClipPath(
@@ -83,7 +109,6 @@ class _SettingsPageState extends State<SettingsPage> {
 
             const SizedBox(height: 30),
 
-            // 🧾 White settings card
             Container(
               width: 360,
               padding: const EdgeInsets.symmetric(vertical: 26, horizontal: 20),
@@ -112,7 +137,6 @@ class _SettingsPageState extends State<SettingsPage> {
                       );
                     },
                   ),
-
                   const Divider(thickness: 1, color: Color(0xFFEDEDED)),
                   ToggleRow(
                     title: 'الإشعارات',
@@ -125,25 +149,14 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                   ),
                   const Divider(thickness: 1, color: Color(0xFFEDEDED)),
-                  LanguageRow(
-                    selectedLanguage: selectedLanguage,
-                    onLanguageChanged: (lang) {
-                      setState(() {
-                        selectedLanguage = lang;
-                      });
-                    },
-                  ),
-
-                  const Divider(thickness: 1, color: Color(0xFFEDEDED)),
                   SettingsRow(
                     title: 'الأسئلة الشائعة & الدعم',
                     icon: Icons.help_outline,
                     onTap: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text(
-                            'سيتم إضافة صفحة الأسئلة الشائعة قريباً',
-                          ),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const FaqPage(),
                         ),
                       );
                     },

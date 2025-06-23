@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:mulabbi/views/home_views/guest_home.dart';
 import 'package:mulabbi/views/settings_views/guest_settings%20page.dart';
-import 'package:mulabbi/views/shell/bottom_nav_bar.dart';
-import 'package:mulabbi/views/home_views/user_home.dart';
-import 'package:mulabbi/views/track_views/guest_track.dart';
-import 'package:mulabbi/views/track_views/user_active_track.dart';
-import 'package:mulabbi/views/track_views/user_inactive_track.dart';
-import 'package:mulabbi/views/home_views/journey_home.dart';
 import 'package:mulabbi/views/settings_views/settings_page.dart';
-import 'package:mulabbi/views/zad_views/zad_page.dart';
+import 'package:mulabbi/views/shell/bottom_nav_bar.dart';
+import 'package:mulabbi/views/track_views/track_entry_view.dart';
+import 'package:mulabbi/views/zad_views/zad_page_view.dart';
 
 enum UserType { guest, user, onJourney }
 
 class MainScaffold extends StatefulWidget {
   final UserType userType;
+  final int? index;
 
-  const MainScaffold({super.key, required this.userType});
+  const MainScaffold({super.key, required this.userType, this.index});
 
   @override
   State<MainScaffold> createState() => _MainScaffoldState();
@@ -23,6 +20,12 @@ class MainScaffold extends StatefulWidget {
 
 class _MainScaffoldState extends State<MainScaffold> {
   int _selectedIndex = 3;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.index ?? 3;
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -35,23 +38,16 @@ class _MainScaffoldState extends State<MainScaffold> {
       case 0: // الإعدادات
         return switch (widget.userType) {
           UserType.guest => const GuestSettingsPage(),
-          _ => const SettingsPage(), // covers user & onJourney
+          UserType.user => const SettingsPage(),
+          UserType.onJourney => const SettingsPage(),
         };
       case 1: // زاد
-        return const ZadPage();
+        return ZadPageView();
       case 2: // المسار
-        return switch (widget.userType) {
-          UserType.guest => const GuestTrack(),
-          UserType.user => const UserInactiveTrack(),
-          UserType.onJourney => const UserActiveTrack(),
-        };
+        return TrackEntryView();
 
       case 3: // الرئيسية
-        return switch (widget.userType) {
-          UserType.guest => const GuestHome(),
-          UserType.user => const UserHome(),
-          UserType.onJourney => const JourneyHome(),
-        };
+        return GuestHome();
       default:
         return const SizedBox();
     }

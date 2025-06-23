@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mulabbi/core/colors.dart';
+import 'package:mulabbi/views/auth/login_page.dart';
+import 'package:mulabbi/views/auth/singup_page.dart';
 
 class GuestSettingsPage extends StatelessWidget {
   const GuestSettingsPage({super.key});
@@ -51,22 +54,6 @@ class GuestSettingsPage extends StatelessWidget {
                             color: Color.fromARGB(255, 165, 120, 89),
                           ),
                         ),
-                        Positioned(
-                          bottom: 4,
-                          right: 4,
-                          child: Container(
-                            padding: const EdgeInsets.all(6),
-                            decoration: const BoxDecoration(
-                              color: Color.fromARGB(255, 158, 115, 84),
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Icon(
-                              Icons.camera_alt_rounded,
-                              size: 16,
-                              color: Color.fromARGB(255, 255, 255, 255),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                   ],
@@ -107,66 +94,71 @@ class GuestSettingsPage extends StatelessWidget {
                       color: Color(0xFF7E573B),
                     ),
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 28),
 
                   // ✅ Wrap only this part with horizontal padding
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 100),
-                    child: Column(
-                      children: [
-                        // 🔘 Gradient login button
-                        Container(
-                          width: double.infinity,
-                          height: 46,
-                          decoration: BoxDecoration(
-                            gradient: AppColorBrown.gradientBrown,
-                            borderRadius: BorderRadius.circular(30),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.25),
-                                blurRadius: 6,
-                                offset: const Offset(0, 4),
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => LoginScreen());
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 95),
+                      child: Column(
+                        children: [
+                          // 🔘 Gradient login button
+                          Container(
+                            width: double.infinity,
+                            height: 46,
+                            decoration: BoxDecoration(
+                              gradient: AppColorBrown.gradientBrown,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.25),
+                                  blurRadius: 6,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'تسجيل الدخول',
+                                style: TextStyle(
+                                  fontFamily: 'Cairo',
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.black.withOpacity(0.30),
+                                      offset: const Offset(0, 3),
+                                      blurRadius: 1,
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ],
+                            ),
                           ),
-                          child: Center(
-                            child: Text(
-                              'تسجيل الدخول',
+
+                          const SizedBox(height: 10),
+
+                          // ➕ Create account link
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(() => SingupPage());
+                            },
+                            child: const Text(
+                              "إنشاء حساب جديد",
                               style: TextStyle(
-                                fontFamily: 'Cairo',
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                shadows: [
-                                  Shadow(
-                                    color: Colors.black.withOpacity(0.30),
-                                    offset: const Offset(0, 3),
-                                    blurRadius: 1,
-                                  ),
-                                ],
+                                fontSize: 13,
+                                color: Color(0xFF734218),
+                                decoration: TextDecoration.underline,
+                                decorationColor: Color(0xFF734218),
                               ),
                             ),
                           ),
-                        ),
-
-                        const SizedBox(height: 10),
-
-                        // ➕ Create account link
-                        GestureDetector(
-                          onTap: () {
-                            // TODO: Navigate to sign-up
-                          },
-                          child: const Text(
-                            'انشاء حساب جديد',
-                            style: TextStyle(
-                              fontFamily: 'Cairo',
-                              fontSize: 12.5,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xFF734218),
-                            ),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],
