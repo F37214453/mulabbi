@@ -1,9 +1,5 @@
 # Mulabbi
 
-<p style="">
-<span style="color:red; font-size: 10px">V0.1</span>
-Inital draft, not the final product
-</p>
 an application to help pilgrims detects their nusk step by step
 
 ## What to expect from the the readme ?
