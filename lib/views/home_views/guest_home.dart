@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mulabbi/controllers/track_controller.dart';
 import 'package:mulabbi/models/nusk_details.dart';
 import 'package:mulabbi/views/home_views/articles/official_documents_view.dart';
 import 'package:mulabbi/views/home_views/articles/pilgrim_bag_view.dart';
+import 'package:mulabbi/views/shell/main_scaffold.dart';
 import 'package:mulabbi/views/track_views/choose_nusk.dart';
 import 'package:mulabbi/widgets/home_widgets/build_prayer_bar.dart';
 import 'package:mulabbi/widgets/home_widgets/date_and_title_row.dart';
@@ -225,20 +228,31 @@ class _GuestHomeState extends State<GuestHome> {
                                             ),
                                             child: InkWell(
                                               onTap: () {
-                                                showDialog(
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return TrackDetail(
-                                                      title:
-                                                          stepInfo
-                                                              ?.shortTitle ??
-                                                          "عنوان للنسك",
-                                                      trackNumber:
-                                                          trackController
-                                                              .getCurrentStep(),
-                                                      details:
-                                                          stepInfo?.details,
-                                                      isReadOnly: true,
+                                                Get.to(
+                                                  () => MainScaffold(
+                                                    userType: UserType.user,
+                                                    index: 2,
+                                                  ),
+                                                );
+                                                Timer(
+                                                  Duration(milliseconds: 1500),
+                                                  () {
+                                                    showDialog(
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return TrackDetail(
+                                                          title:
+                                                              stepInfo
+                                                                  ?.shortTitle ??
+                                                              "عنوان للنسك",
+                                                          trackNumber:
+                                                              trackController
+                                                                  .getCurrentStep(),
+                                                          details:
+                                                              stepInfo?.details,
+                                                          isReadOnly: true,
+                                                        );
+                                                      },
                                                     );
                                                   },
                                                 );
